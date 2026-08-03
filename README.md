@@ -234,5 +234,4 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ## Author
 
-**Pooja Sri**
-GitHub: [@PoojaSri-30](https://github.com/PoojaSri-30)
+Poojasri R — B.Tech Computer Science (Cybersecurity & Digital Forensics), VIT Bhopal LinkedIn · GitHub
