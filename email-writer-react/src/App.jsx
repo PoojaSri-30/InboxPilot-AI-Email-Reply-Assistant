@@ -42,7 +42,7 @@ function App() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post("https://inboxpilot-ai-email-reply-assistant.onrender.com/", {
+      const response = await axios.post("https://inboxpilot-ai-email-reply-assistant.onrender.com/api/email/generate", {
         emailContent,
         tone
       });
