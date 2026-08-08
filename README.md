@@ -47,15 +47,8 @@ InboxPilot is a full-stack AI email assistant that generates context-aware, tone
 
 ## Architecture
 
-```mermaid
-flowchart TD
-    A["Chrome Extension<br/>(content.js, Gmail)"] -->|"POST /api/email/generate"| C["Spring Boot Backend<br/>(REST Controller + Service)"]
-    B["React Web App<br/>(Vite + MUI)"] -->|"POST /api/email/generate"| C
-    C -->|"WebClient (reactive HTTP)"| D["Google Gemini API"]
-    D -->|"Generated reply"| C
-    C -->|"JSON response"| A
-    C -->|"JSON response"| B
-```
+<img width="772" height="440" alt="Screenshot 2026-08-03 034634" src="https://github.com/user-attachments/assets/203d35fb-2237-487d-aff5-856691c1b8e0" />
+
 
 Both the extension and the web app are independent clients of the same backend — the extension embeds itself in Gmail's DOM, while the React app offers an isolated surface for testing the API without needing Gmail open.
 
@@ -99,7 +92,7 @@ email-writer/
 ### Prerequisites
 
 - **Java 21+** (JDK)
-- **Node.js 18+** and npm
+- **npm** (Node.js runtime)
 - **Google Chrome**
 - A **Gemini API key** — create one at [Google AI Studio](https://aistudio.google.com/)
 
@@ -199,12 +192,20 @@ These are injected into `application.properties` via `${GEMINI_URL}` / `${GEMINI
 
 ## Screenshots
 
-> _Add screenshots here before publishing — recruiters and reviewers judge a README heavily on visuals._
+<img width="1145" height="700" alt="Screenshot 2026-08-03 031636" src="https://github.com/user-attachments/assets/12361eee-640d-4450-b5d6-e3b9cc52514b" />
 
-```
-![Web App Screenshot](./docs/screenshot-webapp.png)
-![Gmail Extension Screenshot](./docs/screenshot-extension.png)
-```
+
+<img width="1067" height="406" alt="Screenshot 2026-08-03 031652" src="https://github.com/user-attachments/assets/0f03a388-c069-4884-bf4c-e6506e65ff3d" />
+
+<img width="1163" height="701" alt="Screenshot 2026-08-03 031659" src="https://github.com/user-attachments/assets/075dfaf0-796f-44bb-9f61-e947497f4d9a" />
+
+## Extension
+
+<img width="1007" height="586" alt="Screenshot 2026-08-03 031611" src="https://github.com/user-attachments/assets/75760d81-d828-4b7a-ab16-1848632d3733" />
+
+<img width="911" height="245" alt="Screenshot 2026-08-03 031629" src="https://github.com/user-attachments/assets/146b69f0-49ce-444c-b5e6-ce5c0e8ed9f9" />
+
+
 
 ## Known Limitations
 
@@ -212,7 +213,7 @@ These are injected into `application.properties` via `${GEMINI_URL}` / `${GEMINI
 - Single shared Gemini API key — usage is bounded by that key's quota.
 - Not yet deployed; currently runs locally only.
 
-## Roadmap
+## Future Roadmap
 
 - [ ] Deploy backend (Render/Railway) and frontend (Vercel/Netlify)
 - [ ] Add per-user API rate limiting
@@ -233,5 +234,5 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ## Author
 
-**Pooja Sri**
-GitHub: [@PoojaSri-30](https://github.com/PoojaSri-30)
+**Poojasri R** — B.Tech Computer Science (Cybersecurity & Digital Forensics), VIT Bhopal
+[LinkedIn](https://www.linkedin.com/in/poojasri30/) · [GitHub](https://github.com/PoojaSri-30)
