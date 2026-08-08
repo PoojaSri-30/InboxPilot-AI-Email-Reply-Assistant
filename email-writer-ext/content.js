@@ -22,10 +22,9 @@ function getEmailContent() {
         if (content) {
             return content.innerText.trim();
         }
-        return '';
     }
+    return '';
 }
-
 
 function findComposeToolbar() {
     const selectors = [
@@ -39,8 +38,8 @@ function findComposeToolbar() {
         if (toolbar) {
             return toolbar;
         }
-        return null;
     }
+    return null;
 }
 
 function injectButton() {
@@ -63,7 +62,7 @@ function injectButton() {
             button.disabled = true;
 
             const emailContent = getEmailContent();
-            const response = await fetch('http://localhost:8080/api/email/generate', {
+            const response = await fetch('https://inboxpilot-ai-email-reply-assistant.onrender.com/api/email/generate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +112,6 @@ const observer = new MutationObserver((mutations) => {
         }
     }
 });
-
 
 observer.observe(document.body, {
     childList: true,
