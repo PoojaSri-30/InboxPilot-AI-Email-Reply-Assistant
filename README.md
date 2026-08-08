@@ -47,23 +47,14 @@ InboxPilot is a full-stack AI email assistant that generates context-aware, tone
 
 ## Architecture
 
-```
-┌─────────────────────┐        ┌──────────────────────┐        ┌────────────────────┐
-│  Chrome Extension     │        │   React Web App        │        │                    │
-│  (content.js, Gmail)  │        │   (Vite + MUI)          │        │                    │
-└──────────┬───────────┘        └──────────┬────────────┘        │                    │
-           │        POST /api/email/generate           │                    │
-           └────────────────────┬───────────────────────┘                    │
-                                 ▼                                            │
-                     ┌───────────────────────────┐                           │
-                     │  Spring Boot Backend         │                           │
-                     │  (REST Controller + Service) │                           │
-                     └─────────────┬─────────────┘                           │
-                                   │  WebClient (reactive HTTP)               │
-                                   ▼                                          │
-                     ┌───────────────────────────┐                           │
-                     │   Google Gemini API           │◄──────────────────────┘
-                     └───────────────────────────┘
+```mermaid
+flowchart TD
+    A["Chrome Extension<br/>(content.js, Gmail)"] -->|"POST /api/email/generate"| C["Spring Boot Backend<br/>(REST Controller + Service)"]
+    B["React Web App<br/>(Vite + MUI)"] -->|"POST /api/email/generate"| C
+    C -->|"WebClient (reactive HTTP)"| D["Google Gemini API"]
+    D -->|"Generated reply"| C
+    C -->|"JSON response"| A
+    C -->|"JSON response"| B
 ```
 
 Both the extension and the web app are independent clients of the same backend — the extension embeds itself in Gmail's DOM, while the React app offers an isolated surface for testing the API without needing Gmail open.
