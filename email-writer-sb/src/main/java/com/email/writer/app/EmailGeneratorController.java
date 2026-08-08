@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @CrossOrigin(origins = {
     "https://inbox-pilot-ai-email-reply-assistan.vercel.app",
-    "chrome-extension://nklkmkglemoafllmlakeecmeffmohkkg"
+    "https://mail.google.com"
 })
 public class EmailGeneratorController {
 
