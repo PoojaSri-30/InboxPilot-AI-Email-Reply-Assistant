@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/email")
 @AllArgsConstructor
-@CrossOrigin(origins = "https://inbox-pilot-ai-email-reply-assistan.vercel.app")
+@CrossOrigin(origins = {
+    "https://inbox-pilot-ai-email-reply-assistan.vercel.app",
+    "chrome-extension://nklkmkglemoafllmlakeecmeffmohkkg"
+})
 public class EmailGeneratorController {
 
     private final EmailGeneratorService emailGeneratorService;

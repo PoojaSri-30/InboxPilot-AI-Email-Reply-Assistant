@@ -5,7 +5,7 @@
     "manifest_version": 3,
     "permissions": ["activeTab", "storage"],
     "host_permissions": [
-        "http://localhost:8080/*",
+        "https://inboxpilot-ai-email-reply-assistant.onrender.com/*",
         "*://mail.google.com/*"
     ],
     "icons": {
